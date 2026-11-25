@@ -32,12 +32,39 @@
     @keyframes gridDrift{to{background-position:52px 52px}}@keyframes haloPulse{0%,100%{transform:scale(.96);opacity:.55}50%{transform:scale(1.03);opacity:1}}@keyframes answerIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}@keyframes questionIn{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
     @media(max-width:1000px){.hero{padding-top:48px}.hero-grid{gap:20px;min-height:430px}.hero-art{min-height:400px}.float-card{padding:10px 12px}.stats .stat b{font-size:14px}}
     @media(max-width:760px){.nav{height:66px}.hero{padding:39px 0 21px}.hero-grid{min-height:0;gap:0}.hero-copy{padding:8px 0 0}.hero h1{font-size:clamp(48px,12.8vw,68px)}.hero-copy>p{color:#bdcbc2}.hero-art{min-height:320px;margin-top:2px}.hero-art:before{inset:5% 7%}.hero-art svg{width:98%}.float-one{top:8%;right:0}.float-two{bottom:2%;left:0}.stats{margin-top:4px;padding:17px 0 18px}.stats .stat b{font-size:13px}.stats .stat span{font-size:9px}.section{scroll-margin-top:75px}.library-tools{margin-top:-4px}.lab-panel{background:radial-gradient(ellipse at 85% 10%,#2e5540 0,transparent 34%),linear-gradient(135deg,#102721,#132f25)}.motion-ready .reveal{transition-duration:.48s}}
-    @media(max-width:390px){.hero-art{min-height:285px}.hero h1{font-size:46px}.library-tools{align-items:flex-start;flex-direction:column}.topic-search-wrap{width:100%}.topic-count{align-self:flex-end}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.hero:after,.hero-art:before,.float-card,.pulse-dot,.wire,.spark,.art-glow,.lab-panel:after,.circuit-wrap:not(.off) #bulbAura,.answer,.quiz-card h3{animation:none!important}.motion-ready .reveal{opacity:1!important;transform:none!important;transition:none!important}}
-  </style>
-</head>
-<body>
-  <div class="reading-progress" aria-hidden="true"><span id="pageProgressFill"></span></div>
+        @media(max-width:390px){.hero-art{min-height:285px}.hero h1{font-size:46px}.library-tools{align-items:flex-start;flex-direction:column}.topic-search-wrap{width:100%}.topic-count{align-self:flex-end}}
+        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.hero:after,.hero-art:before,.float-card,.pulse-dot,.wire,.spark,.art-glow,.lab-panel:after,.circuit-wrap:not(.off) #bulbAura,.answer,.quiz-card h3{animation:none!important}.motion-ready .reveal{opacity:1!important;transform:none!important;transition:none!important}}
+      </style>
+      <style id="volt-workshop-upgrade">
+        .circuit-svg{display:block;height:auto;max-height:225px;aspect-ratio:440/200;margin:13px 0 0;overflow:visible}
+        .circuit-svg .wire-base{fill:none;stroke:#64806e;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+        .circuit-svg .flow{fill:none;stroke:#c7ff77;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8 6;animation:wire 1.2s linear infinite}
+        .circuit-wrap.off .flow{animation:none;opacity:.13}
+        .circuit-wrap:not(.off) .flow{filter:drop-shadow(0 0 5px #c7ff77)}
+        .circuit-wrap.off .flow{opacity:.13}
+        .sim-controls{display:grid;gap:13px;margin-top:14px;padding:15px;border:1px solid #ffffff17;border-radius:16px;background:#ffffff08}
+        .sim-control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+        .sim-control{min-width:0;display:grid;gap:7px}
+        .sim-control label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#cfddd2;font-size:10px;font-weight:700}
+        .sim-control output{color:#c7ff77;font-variant-numeric:tabular-nums}
+        .sim-control select{width:100%;min-height:38px;border:1px solid #526b5a;border-radius:10px;background:#203b30;color:#f1f7f0;padding:8px 10px;font-size:10px}
+        .sim-control input[type="range"]{width:100%;accent-color:#c7ff77;min-height:22px}
+        .sim-control small{color:#8fa397;font-size:9px;line-height:1.4}
+        .sim-control[hidden]{display:none}
+        .sim-results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+        .sim-result{min-width:0;padding:10px 9px;border:1px solid #ffffff14;border-radius:12px;background:#ffffff08}
+        .sim-result span{display:block;color:#9fb2a5;font-size:9px}
+        .sim-result strong{display:block;margin-top:5px;color:#f1f8f0;font-size:14px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+        .sim-explanation{margin:11px 0 0;color:#a7b9ac;font-size:9px;line-height:1.55}
+        .sim-explanation strong{color:#d9e8d6}
+        .sim-status{line-height:1.55}
+        @media(max-width:760px){.sim-results{grid-template-columns:repeat(2,minmax(0,1fr))}.circuit-svg{max-height:205px}.sim-controls{padding:13px}}
+        @media(max-width:390px){.sim-control-grid{gap:9px}.sim-result strong{font-size:13px}.circuit-head{align-items:flex-start;flex-direction:column}}
+        @media(prefers-reduced-motion:reduce){.circuit-svg .flow{animation:none!important}}
+      </style>
+    </head>
+    <body>
+      <div class="reading-progress" aria-hidden="true"><span id="pageProgressFill"></span></div>
   <div class="topline"><span class="pulse-dot" aria-hidden="true"></span> Her gün küçük bir adım, <b>daha sağlam bir ustalık.</b></div>
   <div class="nav-shell"><nav class="nav wrap" aria-label="Ana navigasyon">
     <a class="brand" href="#anasayfa" aria-label="TDA Volt ana sayfa"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.2 2.5 5.8 13h5.7l-.8 8.5L18.4 11h-5.7l.5-8.5Z" fill="currentColor"/></svg></span>TDA Volt</a>
@@ -79,14 +106,23 @@
         <article class="topic-card"><span class="topic-icon">⑂</span><h3>Paralel devre</h3><p>Akımın birden fazla kola ayrılabildiği modeldir. İdeal kollardaki gerilim aynıdır; toplam akım kollara bölünür.</p><span class="formula">Kolların gerilimi eşittir</span></article>
         <article class="topic-card"><span class="topic-icon">⏚</span><h3>AC ve DC</h3><p>DC (doğru akım) tek yönde akar. AC (alternatif akım) yönü ve büyüklüğü zamanla değişen bir modeldir.</p><span class="formula">DC: tek yön · AC: değişken</span></article>
         <article class="topic-card"><span class="topic-icon">kWh</span><h3>Enerji</h3><p>Enerji, gücün zaman boyunca kullanımıdır. Tüketim hesaplarında kilovatsaat (kWh) yaygın bir birimdir.</p><span class="formula">Enerji = Güç × Zaman</span></article>
-      </div><p class="topic-empty" id="topicEmpty" hidden>Bu aramayla eşleşen kavram bulunamadı. Farklı bir kelime deneyebilirsin.</p>
-      <details class="more-info"><summary>Bu formüller ne zaman geçerlidir?</summary><p>Buradaki örnekler, temel öğretim amacıyla kullanılan basitleştirilmiş ideal devreleri ve özellikle açıkça belirtilen basit DC ilişkilerini esas alır. Gerçek AC sistemlerde güç faktörü, faz, bileşen özellikleri ve ilgili standartlar gibi ek unsurlar söz konusu olabilir.</p><p>Gerçek bir devreyi tasarlamak, ölçmek, onarmak ya da enerjili ekipmana müdahale etmek için bu sayfadaki bilgiler yeterli değildir. Uygun eğitim, yetkilendirme ve güvenli çalışma prosedürleri gerekir.</p></details>
-    </div></section>
-    <section class="lab" id="atolye"><div class="wrap"><div class="lab-panel">
-      <div class="lab-copy"><span class="eyebrow">İnteraktif atölye</span><h2>Bir devrenin<br>mantığını keşfet.</h2><p>Basit, düşük gerilimli bir eğitim modelinde devre tamamlandığında akım yolunun nasıl oluştuğunu gözlemle. Bu ekrandaki anahtar yalnızca çizimi değiştirir; gerçek bir devreyi kontrol etmez.</p><div class="lab-bullets"><span><b class="check">✓</b> Pil, anahtar ve ampul sembollerini tanı</span><span><b class="check">✓</b> Akım yolunun animasyonunu gözlemle</span><span><b class="check">✓</b> Modelin gerçek tesisat talimatı olmadığını unutma</span></div><a class="button button-lime" href="#pratik">Konuyu mini sınavla pekiştir <span class="arrow">→</span></a></div>
-      <div class="circuit-wrap off" id="circuitWrap"><div class="circuit-head"><span>DEVRE GÖZLEMİ · DÜŞÜK GERİLİM MODELİ</span><span class="live-pill" id="circuitPill">● DEVRE AÇIK</span></div><svg class="circuit-svg" viewBox="0 0 440 180" role="img" aria-label="Pil, anahtar ve ampulden oluşan basit seri devre modeli"><path d="M84 42H357V134H84V42" fill="none" stroke="#64806e" stroke-width="3" stroke-linejoin="round"/><path class="flow" d="M84 42H357V134H84V42" fill="none" stroke="#b8f56a" stroke-width="3" stroke-linejoin="round" id="flowPath"/><circle cx="357" cy="42" r="30" fill="#b8f56a" opacity=".07" id="bulbAura"/><circle cx="357" cy="42" r="24" fill="#213e32" stroke="#87aa7b" stroke-width="2"/><path d="M345 54c1-8 11-9 12-20 1 11 11 12 12 20z" fill="#718e69" id="bulbFill"/><path d="M351 69h12m-10 5h8" stroke="#a7b9aa" stroke-width="2" stroke-linecap="round"/><rect x="57" y="108" width="54" height="45" rx="8" fill="#334c40" stroke="#91aa93"/><rect x="68" y="103" width="5" height="11" rx="2" fill="#f5bd75"/><rect x="94" y="103" width="5" height="11" rx="2" fill="#879f8c"/><path d="M75 133h10m7 0h10" stroke="#d5e7d6" stroke-width="2" stroke-linecap="round"/><text x="71" y="168" fill="#a5b7aa" font-size="9" font-family="sans-serif">PİL</text><circle cx="220" cy="42" r="5" fill="#b8f56a"/><circle cx="220" cy="42" r="2" fill="#f3ffd9"/><rect x="197" y="28" width="47" height="28" rx="8" fill="#263f33" stroke="#93aa94"/><path d="M202 42h-9m42 0h-9m-16 0 17-10" stroke="#c7d7c5" stroke-width="3" stroke-linecap="round"/><text x="197" y="76" fill="#a5b7aa" font-size="9" font-family="sans-serif">ANAHTAR</text><circle cx="357" cy="42" r="3" fill="#d9f4a7"/><text x="339" y="86" fill="#a5b7aa" font-size="9" font-family="sans-serif">AMPUL</text></svg><div class="circuit-foot"><span><strong id="circuitReadout">Anahtar açık — devre tamamlanmadı</strong><br>Bu şema kavram öğretimi içindir.</span><button class="toggle" id="circuitToggle" type="button" aria-pressed="false">Anahtarı kapat</button></div><div class="sim-status" id="simStatus" aria-live="polite">Akım yolu henüz tamamlanmadı.</div></div>
-    </div></div></section>
-    <section class="practice" id="pratik"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Aktif öğrenme</span><h2>Bilgini çözerek<br>pekiştir.</h2></div><p>Bir seviye seç ve altı soruluk turu tamamla. Açıklamalar yanıtından sonra görünür; en iyi sonuçların bu cihazda saklanır.</p></div>
+        </div><p class="topic-empty" id="topicEmpty" hidden>Bu aramayla eşleşen kavram bulunamadı. Farklı bir kelime deneyebilirsin.</p>
+        <details class="more-info"><summary>Bu formüller ne zaman geçerlidir?</summary><p>Buradaki örnekler, temel öğretim amacıyla kullanılan basitleştirilmiş ideal devreleri ve özellikle açıkça belirtilen basit DC ilişkilerini esas alır. Gerçek AC sistemlerde güç faktörü, faz, bileşen özellikleri ve ilgili standartlar gibi ek unsurlar söz konusu olabilir.</p><p>Gerçek bir devreyi tasarlamak, ölçmek, onarmak ya da enerjili ekipmana müdahale etmek için bu sayfadaki bilgiler yeterli değildir. Uygun eğitim, yetkilendirme ve güvenli çalışma prosedürleri gerekir.</p></details>
+      </div></section>
+      <section class="lab" id="atolye"><div class="wrap"><div class="lab-panel">
+          <div class="lab-copy"><span class="eyebrow">İnteraktif atölye</span><h2>Bir devrenin<br>mantığını keşfet.</h2><p>İdeal, düşük gerilimli bir DC modelinde tek dirençli, seri ve paralel devreleri karşılaştır. Sanal gerilim ve direnç ayarlarını değiştir; eşdeğer direnç, akım ve gücün nasıl etkilendiğini anlık gör.</p><div class="lab-bullets"><span><b class="check">✓</b> Tek, seri ve paralel devre modellerini karşılaştır</span><span><b class="check">✓</b> Sanal değerleri değiştirip Ohm Kanunu sonuçlarını izle</span><span><b class="check">✓</b> Anahtarla yalnızca ekrandaki modeli çalıştır</span></div><a class="button button-lime" href="#pratik">Konuyu mini sınavla pekiştir <span class="arrow">→</span></a></div>
+          <div class="circuit-wrap off" id="circuitWrap"><div class="circuit-head"><span>DEVRE LABORATUVARI · İDEAL DC MODEL</span><span class="live-pill" id="circuitPill">● ANAHTAR AÇIK</span></div><svg class="circuit-svg" id="circuitDiagram" viewBox="0 0 440 200" role="img" aria-label="Ayarlanan direnç türüne göre güncellenen ideal DC devre şeması"></svg><div class="circuit-foot"><span><strong id="circuitReadout">Anahtar açık — modelde akım yok</strong><br>Bu anahtar yalnızca ekrandaki çizimi değiştirir.</span><button class="toggle" id="circuitToggle" type="button" aria-pressed="false">Anahtarı kapat</button></div>
+            <div class="sim-controls" aria-label="Sanal devre ayarları"><div class="sim-control-grid">
+              <div class="sim-control"><label for="simMode">Devre modeli</label><select id="simMode"><option value="single">Tek direnç</option><option value="series">Seri · R1 + R2</option><option value="parallel">Paralel · R1 ∥ R2</option></select><small>Yalnızca ideal DC eğitim simülasyonu.</small></div>
+              <div class="sim-control"><label for="simVoltage">Kaynak gerilimi <output id="voltageValue" for="simVoltage">6 V</output></label><input id="simVoltage" type="range" min="3" max="12" step="1" value="6"><small>Model aralığı: 3–12 V</small></div>
+              <div class="sim-control"><label for="simResistance1">Direnç R1 <output id="resistance1Value" for="simResistance1">30 Ω</output></label><input id="simResistance1" type="range" min="10" max="100" step="5" value="30"><small>Sanal değer: 10–100 Ω</small></div>
+              <div class="sim-control" id="resistance2Control"><label for="simResistance2">Direnç R2 <output id="resistance2Value" for="simResistance2">60 Ω</output></label><input id="simResistance2" type="range" min="10" max="100" step="5" value="60"><small>Seri veya paralel modelde kullanılır</small></div>
+            </div></div>
+            <div class="sim-results" aria-label="Eğitim modelinin hesaplanan sonuçları"><div class="sim-result"><span>Kaynak gerilimi</span><strong id="resultVoltage">6 V</strong></div><div class="sim-result"><span>Eşdeğer direnç</span><strong id="resultResistance">30 Ω</strong></div><div class="sim-result"><span>Model akımı</span><strong id="resultCurrent">0 A</strong></div><div class="sim-result"><span>Toplam güç</span><strong id="resultPower">0 W</strong></div></div>
+            <p class="sim-explanation" id="simExplanation">Tek direnç modeli: R<sub>eş</sub> = R1. Anahtar açıkken model akımı 0 A kabul edilir.</p><div class="sim-status" id="simStatus" aria-live="polite">Ayarları değiştir veya sanal anahtarı kapatıp ideal modeli gözlemle.</div><p class="sim-explanation"><strong>Güvenlik notu:</strong> Ekrandaki değerler yalnızca matematiksel örneklerdir; gerçek parçaya, pile veya tesisata bağlanmaz. Gerçek elektrik işlerine müdahale etmeyin.</p>
+          </div>
+        </div></div></section>
+        <section class="practice" id="pratik"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Aktif öğrenme</span><h2>Bilgini çözerek<br>pekiştir.</h2></div><p>Bir seviye seç ve altı soruluk turu tamamla. Açıklamalar yanıtından sonra görünür; en iyi sonuçların bu cihazda saklanır.</p></div>
       <div class="practice-grid"><div class="quiz-card" id="quizCard"><div class="quiz-label"><span class="eyebrow">Mini sınav · 24 soru</span><span class="quiz-count" id="quizCount">Soru 1 / 6</span></div><div class="level-row"><label for="levelSelect">Öğrenme seviyeni seç</label><select class="level-select" id="levelSelect"><option value="baslangic">01 · Başlangıç</option><option value="temel">02 · Temel</option><option value="orta">03 · Orta</option><option value="ileri">04 · İleri kavramlar</option></select></div><h3 id="questionText"></h3><p class="quiz-sub" id="questionHint"></p><div class="progress" role="progressbar" aria-label="Sınav turu ilerlemesi" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><span id="progressBar"></span></div><div class="answers" id="answers"></div><div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div><div class="quiz-actions"><span class="score" id="scoreText">Bu tur: 0 doğru</span><button class="button button-dark" id="quizNext" type="button">Cevabı kontrol et <span class="arrow">→</span></button></div></div>
         <div class="ask-card"><div class="ask-heading"><span class="bot-icon" aria-hidden="true">✳</span><div><h3>Elektrik asistanı</h3><div class="ask-sub">Temel konularda örnek soru-cevap</div></div></div><div class="chat-box" id="chatBox" aria-live="polite" aria-label="Örnek soru ve cevaplar"><div class="bubble bot">Merhaba! Temel elektrik başlıklarından birini sorabilir ya da örneklerden birini seçebilirsin.</div></div><div class="suggestions"><button class="suggestion" type="button" data-question="Ohm Kanunu nedir?">Ohm Kanunu</button><button class="suggestion" type="button" data-question="Seri ve paralel devre farkı nedir?">Seri-paralel</button><button class="suggestion" type="button" data-question="AC ve DC farkı nedir?">AC ve DC</button><button class="suggestion" type="button" data-question="Elektrikte güvenlik neden önemli?">Güvenlik</button></div><form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Elektrik hakkında soru yaz</label><input id="chatInput" type="text" maxlength="180" placeholder="Bir temel konu sor..." autocomplete="off"><button aria-label="Soruyu gönder" type="submit">↑</button></form><p class="chat-disclaimer">Demo asistan: yanıtlar önceden hazırlanmıştır; canlı yapay zekâ bağlantısı veya kişisel danışmanlık değildir.</p></div>
       </div>
@@ -97,16 +133,76 @@
   <footer><div class="wrap"><div class="footer-top"><div class="footer-brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.2 2.5 5.8 13h5.7l-.8 8.5L18.4 11h-5.7l.5-8.5Z" fill="currentColor"/></svg></span><div><a class="brand" href="#anasayfa">TDA Volt</a><p>Elektrik mesleğinde öğrenmenin yeni yolu.</p></div></div><div class="footer-links"><a href="#yol-haritasi">Seviyeler</a><a href="#kutuphane">Bilgi kütüphanesi</a><a href="#atolye">Atölye</a><a href="#pratik">Mini sınav</a><a href="#guvenlik">Güvenlik notu</a></div></div><div class="footer-bottom"><span>© 2026 TDA Volt · Eğitim demosu</span><span class="notice">Gerçek elektrik işleri için yetkin bir uzmana ve resmi güvenlik prosedürlerine başvurun.</span></div></div></footer>
   <script>
     'use strict';
-    const menuToggle=document.getElementById('menuToggle');
-    const navLinks=document.getElementById('navLinks');
-    menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Menüyü kapat':'Menüyü aç');menuToggle.textContent=open?'×':'☰'});
-    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Menüyü aç');menuToggle.textContent='☰'}));
+        const menuToggle=document.getElementById('menuToggle');
+        const navLinks=document.getElementById('navLinks');
+        menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Menüyü kapat':'Menüyü aç');menuToggle.textContent=open?'×':'☰'});
+        navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Menüyü aç');menuToggle.textContent='☰'}));
 
-    const circuitWrap=document.getElementById('circuitWrap'),circuitToggle=document.getElementById('circuitToggle'),circuitPill=document.getElementById('circuitPill'),circuitReadout=document.getElementById('circuitReadout'),simStatus=document.getElementById('simStatus'),bulbFill=document.getElementById('bulbFill');
-    let circuitOn=false;
-    circuitToggle.addEventListener('click',()=>{circuitOn=!circuitOn;circuitWrap.classList.toggle('off',!circuitOn);circuitToggle.setAttribute('aria-pressed',String(circuitOn));circuitToggle.textContent=circuitOn?'Anahtarı aç':'Anahtarı kapat';circuitPill.textContent=circuitOn?'● MODEL TAMAM':'● DEVRE AÇIK';circuitReadout.textContent=circuitOn?'Modelde anahtar kapalı — devre tamamlandı':'Anahtar açık — devre tamamlanmadı';simStatus.textContent=circuitOn?'Eğitim modelinde akım yolu tamamlandı; gösterimde ampul yanıyor.':'Akım yolu henüz tamamlanmadı.';bulbFill.setAttribute('fill',circuitOn?'#b8f56a':'#718e69')});
+        const circuitWrap=document.getElementById('circuitWrap');
+        const circuitToggle=document.getElementById('circuitToggle');
+        const circuitPill=document.getElementById('circuitPill');
+        const circuitReadout=document.getElementById('circuitReadout');
+        const circuitDiagram=document.getElementById('circuitDiagram');
+        const simStatus=document.getElementById('simStatus');
+        const simMode=document.getElementById('simMode');
+        const simVoltage=document.getElementById('simVoltage');
+        const simResistance1=document.getElementById('simResistance1');
+        const simResistance2=document.getElementById('simResistance2');
+        const resistance2Control=document.getElementById('resistance2Control');
+        let circuitOn=false;
+        const formatSimNumber=value=>Number(value).toLocaleString('tr-TR',{maximumFractionDigits:2});
+        const svgWire=d=>`<path class="wire-base" d="${d}"/>`;
+        const svgResistor=(x,y,width,name,value)=>`<path class="wire-base" d="M${x-18} ${y}H${x} M${x+width} ${y}H${x+width+18}"/><rect x="${x}" y="${y-12}" width="${width}" height="24" rx="5" fill="#203d31" stroke="#b6c9b5" stroke-width="2"/><text x="${x+width/2}" y="${y+3}" text-anchor="middle" fill="#d9e8d6" font-size="8" font-family="sans-serif">${name} ${value}Ω</text>`;
+        const svgSource=()=>`<path class="wire-base" d="M80 60V91 M80 113V150"/><path d="M64 91H96 M69 113H91" stroke="#e7f0e4" stroke-width="3" stroke-linecap="round"/><text x="54" y="105" fill="#c7ff77" font-size="9" font-family="sans-serif">+</text><text x="57" y="132" fill="#a9b9ac" font-size="9" font-family="sans-serif">−</text><text x="60" y="171" fill="#a5b7aa" font-size="9" font-family="sans-serif">KAYNAK</text>`;
+        const svgSwitch=()=>`<circle cx="135" cy="60" r="4" fill="#c7ff77"/><circle cx="185" cy="60" r="4" fill="#c7ff77"/><path d="M135 60L${circuitOn?'185 60':'166 48'}" stroke="#e5eee1" stroke-width="3" stroke-linecap="round"/><text x="137" y="39" fill="#a5b7aa" font-size="9" font-family="sans-serif">ANAHTAR</text>`;
+        function renderDiagram(mode,r1,r2){
+          let wires='',components='',flow='';
+          if(mode==='parallel'){
+            wires=svgWire('M80 60H135 M185 60H210V80 M210 80V150 M340 80V150 M340 150H80V113 M80 91V60 M210 90H229 M305 90H340 M210 125H229 M305 125H340');
+            components=svgResistor(247,90,58,'R1',r1)+svgResistor(247,125,58,'R2',r2);
+            flow=circuitOn?'<path class="flow" d="M80 60H135H185H210V90H340V150H80V113 M80 91V60"/><path class="flow" d="M80 60H135H185H210V125H340V150H80V113 M80 91V60"/>':'';
+          }else if(mode==='series'){
+            wires=svgWire('M80 60H135 M185 60H340V150H320 M132 150H80V113 M80 91V60');
+            components=svgResistor(150,150,58,'R1',r1)+svgResistor(244,150,58,'R2',r2);
+            flow=circuitOn?'<path class="flow" d="M80 60H135H185H340V150H80V113 M80 91V60"/>':'';
+          }else{
+            wires=svgWire('M80 60H135 M185 60H340V150H295 M187 150H80V113 M80 91V60');
+            components=svgResistor(205,150,72,'R1',r1);
+            flow=circuitOn?'<path class="flow" d="M80 60H135H185H340V150H80V113 M80 91V60"/>':'';
+          }
+          const labels='<text x="333" y="172" fill="#a5b7aa" font-size="9" font-family="sans-serif">İDEAL DC</text>';
+          circuitDiagram.innerHTML=`${wires}${flow}${svgSource()}${svgSwitch()}${components}${labels}`;
+          const modeName=mode==='series'?'seri':mode==='parallel'?'paralel':'tek dirençli';
+          circuitDiagram.setAttribute('aria-label',`${modeName} devre, ayarlanabilir dirençler ve sanal anahtar içeren ideal DC eğitim şeması`);
+        }
+        function renderSimulation(){
+          const mode=simMode.value,voltage=Number(simVoltage.value),r1=Number(simResistance1.value),r2=Number(simResistance2.value);
+          const equivalent=mode==='series'?r1+r2:mode==='parallel'?(r1*r2)/(r1+r2):r1;
+          const current=circuitOn?voltage/equivalent:0;
+          const power=voltage*current;
+          document.getElementById('voltageValue').textContent=`${voltage} V`;
+          document.getElementById('resistance1Value').textContent=`${r1} Ω`;
+          document.getElementById('resistance2Value').textContent=`${r2} Ω`;
+          resistance2Control.hidden=mode==='single';
+          document.getElementById('resultVoltage').textContent=`${voltage} V`;
+          document.getElementById('resultResistance').textContent=`${formatSimNumber(equivalent)} Ω`;
+          document.getElementById('resultCurrent').textContent=`${formatSimNumber(current)} A`;
+          document.getElementById('resultPower').textContent=`${formatSimNumber(power)} W`;
+          const formula=mode==='series'?`Seri model: Rₑş = R1 + R2 = ${r1} + ${r2} = ${formatSimNumber(equivalent)} Ω.`:mode==='parallel'?`Paralel model: 1/Rₑş = 1/R1 + 1/R2; Rₑş ≈ ${formatSimNumber(equivalent)} Ω.`:`Tek direnç modeli: Rₑş = R1 = ${r1} Ω.`;
+          document.getElementById('simExplanation').textContent=`${formula} ${circuitOn?'Akım I = V ÷ Rₑş; güç P = V × I.':'Anahtar açıkken model akımı 0 A kabul edilir.'}`;
+          circuitWrap.classList.toggle('off',!circuitOn);
+          circuitToggle.setAttribute('aria-pressed',String(circuitOn));
+          circuitToggle.textContent=circuitOn?'Anahtarı aç':'Anahtarı kapat';
+          circuitPill.textContent=circuitOn?'● MODEL ÇALIŞIYOR':'● ANAHTAR AÇIK';
+          circuitReadout.textContent=circuitOn?'Anahtar kapalı — ideal model tamamlandı':'Anahtar açık — modelde akım yok';
+          simStatus.textContent=circuitOn?`İdeal model: ${formatSimNumber(current)} A akım ve ${formatSimNumber(power)} W toplam güç hesaplandı.`:'Devre açık: anahtar kapalı olmadığı için model akımı 0 A.';
+          renderDiagram(mode,r1,r2);
+        }
+        circuitToggle.addEventListener('click',()=>{circuitOn=!circuitOn;renderSimulation()});
+        [simMode,simVoltage,simResistance1,simResistance2].forEach(control=>control.addEventListener(control===simMode?'change':'input',renderSimulation));
+        renderSimulation();
 
-    const questionSets={
+        const questionSets={
       baslangic:[
         {q:'Gerilim hangi birimle ölçülür?',hint:'Birim sembolünü düşün.',answers:['Amper (A)','Volt (V)','Ohm (Ω)'],correct:1,why:'Gerilimin birimi volttur; birim sembolü V şeklindedir.'},
         {q:'Elektrik akımının birimi hangisidir?',hint:'Akım ve amper aynı harfle başlar.',answers:['Amper (A)','Watt (W)','Volt (V)'],correct:0,why:'Elektrik akımı amper (A) ile ifade edilir.'},
